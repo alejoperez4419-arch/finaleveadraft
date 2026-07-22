@@ -1,260 +1,352 @@
-/* =================================================
-   GLASSMORPHISM + NEON UI (DISEÑO MODERNO)
-   ================================================= */
+/* ===========================
+   SPAIN FUTURISTIC GAMER UI
+   Responsive - Mobile & PC
+=========================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
-:root {
-/*   --bg-main: linear-gradient(135deg, #0f2027, #203a43, #2c5364); */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-
-
-  --neon-purple: #a855f7;
-  --neon-pink: #ff4ecd;
-
-
-  --text-soft: rgba(255, 255, 255, 0.6);
+:root{
+    --red:#d6001c;
+    --yellow:#ffd100;
+    --red2:#ff3b4d;
+    --gold:#ffe76b;
+    --bg:#05070d;
+    --card:#0d1322;
+    --border:rgba(255,255,255,.12);
+    --white:#ffffff;
+    --shadow-red:0 0 20px rgba(214,0,28,.45);
+    --shadow-gold:0 0 25px rgba(255,209,0,.35);
+    --transition:.30s ease;
 }
 
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: white;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* BODY */
-body {
-  font-family: 'Poppins', sans-serif;
-  background-image: url(fondo.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-main);
+html,body{
+    width:100%;
+    height:100%;
+    font-family:'Russo One',sans-serif;
+    overflow:hidden;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 60%),
-              radial-gradient(circle at bottom, rgba(0,0,0,0.4), transparent 70%);
-  pointer-events: none;
+body{
+    background:url("fondo.png") center center/cover no-repeat fixed;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
 }
 
-.title2{
-  color: white;
+/* Fondo futurista */
+
+.background-overlay{
+    position:absolute;
+    inset:0;
+    background:
+    radial-gradient(circle at top,#ffd0001a,transparent 45%),
+    radial-gradient(circle at bottom,#d6001c22,transparent 45%),
+    linear-gradient(rgba(4,6,15,.82),rgba(4,6,15,.88));
+    backdrop-filter:blur(5px);
+    z-index:0;
 }
 
+/* Contenedor */
+
+.container{
+    position:relative;
+    z-index:2;
+    width:min(95%,520px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* Sections */
+
+.section{
+    display:none;
+    width:100%;
+}
+
+.section.active{
+    display:block;
+    animation:fade .4s;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.96);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* Caja principal */
+
+.content-box{
+    width:100%;
+    background:rgba(7,11,22,.82);
+    border:2px solid rgba(255,209,0,.25);
+    backdrop-filter:blur(14px);
+    border-radius:30px;
+    padding:28px;
+    box-shadow:
+    var(--shadow-red),
+    var(--shadow-gold),
+    inset 0 0 30px rgba(255,255,255,.04);
+    text-align:center;
+}
+
+.content-box.big{
+    max-height:88vh;
+    overflow:auto;
+}
+
+.content-box::-webkit-scrollbar{
+    width:8px;
+}
+
+.content-box::-webkit-scrollbar-thumb{
+    background:var(--yellow);
+    border-radius:20px;
+}
+
+/* Logo */
+
+.logo,
 #title2{
-  width: 100%;
-}
-/* =========================
-   CONTENEDOR GLASS
-========================= */
-.container {
-  width: 100%;
-  max-width: 450px;
-  padding: 20px;
+    width:100%;
+    max-width:320px;
+    display:block;
+    margin:auto auto 25px;
+    filter:
+    drop-shadow(0 0 18px rgba(255,209,0,.45))
+    drop-shadow(0 0 12px rgba(214,0,28,.4));
 }
 
-.content-box {
-  backdrop-filter: blur(15px);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  padding: 40px 30px;
-  text-align: center;
-  box-shadow: 0 0 40px rgba(0, 234, 255, 0.15);
+/* Titulos */
+
+h2{
+    color:white;
+    font-size:1.6rem;
+    margin-bottom:12px;
+    text-shadow:
+    0 0 10px #ffd000,
+    0 0 20px #d6001c;
+}
+
+p{
+    color:#ececec;
+    line-height:1.5;
+}
+
+/* Input */
+
+input{
+    width:100%;
+    padding:16px;
+    margin-top:12px;
+    border:none;
+    border-radius:16px;
+    outline:none;
+    background:#12192d;
+    color:white;
+    font-size:17px;
+    border:2px solid rgba(255,209,0,.25);
+    transition:var(--transition);
+}
+
+input:focus{
+    border-color:var(--yellow);
+    box-shadow:0 0 18px rgba(255,209,0,.45);
+}
+
+/* Botones */
+
+button{
+    margin-top:25px;
+    width:100%;
+    padding:17px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font-family:'Russo One',sans-serif;
+    font-size:17px;
+    color:white;
+
+    background:
+    linear-gradient(90deg,
+    var(--red),
+    var(--yellow));
+
+    transition:var(--transition);
+    box-shadow:
+    0 0 18px rgba(255,209,0,.4),
+    0 0 20px rgba(214,0,28,.35);
+}
+
+button:hover{
+    transform:translateY(-3px) scale(1.02);
+    box-shadow:
+    0 0 28px rgba(255,209,0,.65),
+    0 0 35px rgba(214,0,28,.5);
+}
+
+button:active{
+    transform:scale(.96);
+}
+
+/* Grid */
+
+.cards-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    margin-top:25px;
+}
+
+/* Card */
+
+.card{
+    background:linear-gradient(180deg,#182338,#0c111c);
+    border:2px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:12px;
+    cursor:pointer;
+    color:white;
+    transition:var(--transition);
+    text-align:center;
+    box-shadow:0 0 12px rgba(0,0,0,.5);
+    user-select:none;
+}
+
+.card:hover{
+    transform:translateY(-6px) scale(1.04);
+    border-color:var(--yellow);
+    box-shadow:
+    0 0 25px rgba(255,209,0,.45),
+    0 0 20px rgba(214,0,28,.35);
+}
+
+.card img{
+    width:100%;
+    border-radius:12px;
+    display:block;
+}
+
+/* Card seleccionada */
+
+.card.selected{
+    border-color:var(--yellow);
+    background:
+    linear-gradient(180deg,#3a0b11,#2b2212);
+    box-shadow:
+    0 0 25px rgba(255,209,0,.7),
+    0 0 30px rgba(214,0,28,.5);
+    transform:scale(1.04);
+}
+
+/* Spinner */
+
+.spinner{
+    margin:30px auto;
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    border:7px solid rgba(255,255,255,.12);
+    border-top:7px solid var(--yellow);
+    border-right:7px solid var(--red);
+    animation:spin .8s linear infinite;
+    box-shadow:
+    0 0 25px rgba(255,209,0,.4);
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* UID */
+
+#searchingPlayer{
+    font-size:18px;
+    color:var(--gold);
+    margin-top:12px;
+}
+
+/* Mobile */
+
+@media(max-width:700px){
+
+    .container{
+        width:100%;
+        padding:14px;
+    }
+
+    .content-box{
+        padding:20px;
+        border-radius:22px;
+    }
+
+    .cards-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .card{
+        padding:8px;
+    }
+
+    h2{
+        font-size:1.25rem;
+    }
+
+    button{
+        font-size:15px;
+        padding:15px;
+    }
+
+    input{
+        font-size:15px;
+    }
 
 }
 
-.content-box h2{
-color: white;
-}
-/* =========================
-   TEXTOS
-========================= */
-.section {
-  display: none;
-  flex-direction: column;
-  animation: fadeZoom 0.5s ease;
-}
+/* Tablets */
 
-.section.active {
-  display: flex;
-}
+@media(min-width:701px) and (max-width:1100px){
 
-@keyframes fadeZoom {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-h2 {
-  font-size: 28px;
-  font-weight: 700;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
-  -webkit-background-clip: text;
+    .container{
+        width:min(90%,600px);
+    }
 
 }
 
-p {
-  font-size: 12px;
-  color: var(--text-soft);
-  letter-spacing: 1px;
-  margin-top: 5px;
-}
+/* PC Grande */
 
-/* =========================
-   INPUTS
-========================= */
-.input-group {
-  margin-top: 25px;
-}
+@media(min-width:1101px){
 
-input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid var(--glass-border);
-  background: rgba(255,255,255,0.05);
-  font-size: 15px;
-  text-align: center;
-  transition: 0.3s;
-}
+    .container{
+        width:560px;
+    }
 
-input:focus {
-  outline: none;
-  border: 1px solid var(--neon-blue);
-  box-shadow: 0 0 10px var(--neon-blue);
-}
+    .content-box{
+        padding:35px;
+    }
 
-/* =========================
-   BOTONES
-========================= */
-button {
-  margin-top: 25px;
-  padding: 15px;
-  width: 100%;
-  border-radius: 12px;
-  border: none;
-  font-weight: 600;
-  cursor: pointer;
-  color: black;
-    background: white;
-  transition: 0.3s;
-  box-shadow: 0 0 15px rgba(0, 234, 255, 0.3);
-}
+    .cards-grid{
+        gap:18px;
+    }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
-}
-
-button:active {
-  transform: scale(0.95);
-}
-
-/* =========================
-   TARJETAS
-========================= */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 25px;
-}
-
-.card {
-  border-radius: 12px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid transparent;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.card img {
-  width: 100%;
-  display: block;
-}
-
-.card:hover {
-  transform: scale(1.08);
-  border: 1px solid var(--neon-blue);
-  box-shadow: 0 0 15px var(--neon-blue);
-}
-
-.card.selected {
-  border: 2px solid var(--neon-pink);
-  box-shadow: 0 0 20px var(--neon-pink);
-}
-
-/* =========================
-   NUEVO SPINNER (ORB NEON)
-========================= */
-.spinner {
-  width: 70px;
-  height: 70px;
-  margin: 30px auto;
-  border-radius: 50%;
-  position: relative;
-}
-
-.spinner::before,
-.spinner::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-  border: 3px solid transparent;
-}
-
-.spinner::before {
-  border-top: 3px solid var(--neon-blue);
-  animation: spin 1s linear infinite;
-}
-
-.spinner::after {
-  border-bottom: 3px solid var(--neon-pink);
-  animation: spinReverse 1.2s linear infinite;
-}
-
-@keyframes spin {
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spinReverse {
-  100% {
-    transform: rotate(-360deg);
-  }
-}
-
-#loadingText {
-  color: var(--neon-blue);
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-/* =========================
-   LOGO
-========================= */
-.logo {
-  width: 100%;
-  margin-bottom: 20px;
+    .card:hover{
+        transform:translateY(-8px) scale(1.06);
+    }
 
 }
